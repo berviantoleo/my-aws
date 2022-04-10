@@ -5,6 +5,13 @@ terraform {
       version = "~> 3.0"
     }
   }
+  cloud {
+    organization = "bervproject"
+
+    workspaces {
+      name = "aws-personal-iac"
+    }
+  }
 }
 
 # Configure the AWS Provider
