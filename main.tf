@@ -16,6 +16,14 @@ terraform {
 
 # Configure the AWS Provider
 provider "aws" {
+  default_tags {
+    tags = {
+      Environment = "Dev"
+    }
+  }
+}
+
+provider "aws" {
   alias  = "ap-southeast-1"
   region = "ap-southeast-1"
 }

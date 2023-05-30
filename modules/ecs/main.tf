@@ -7,6 +7,14 @@ terraform {
   }
 }
 
+provider "aws" {
+  default_tags {
+    tags = {
+      Environment = "Dev"
+    }
+  }
+}
+
 resource "aws_default_vpc" "my-personal-web" {
   tags = {
     env = "dev"
