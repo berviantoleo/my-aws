@@ -8,11 +8,11 @@ terraform {
 }
 
 provider "aws" {
- default_tags {
-   tags = {
-     Environment = "Dev"
-   }
- }
+  default_tags {
+    tags = {
+      Environment = "Dev"
+    }
+  }
 }
 
 resource "aws_default_vpc" "my-personal-web" {

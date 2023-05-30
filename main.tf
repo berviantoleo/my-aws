@@ -16,11 +16,11 @@ terraform {
 
 # Configure the AWS Provider
 provider "aws" {
- default_tags {
-   tags = {
-     Environment = "Dev"
-   }
- }
+  default_tags {
+    tags = {
+      Environment = "Dev"
+    }
+  }
 }
 
 provider "aws" {
