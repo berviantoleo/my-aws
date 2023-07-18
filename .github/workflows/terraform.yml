@@ -22,8 +22,6 @@ jobs:
       - name: Terraform Init
         id: init
         run: terraform init -upgrade
-        env:
-          TF_LOG: debug
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color
