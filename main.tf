@@ -83,6 +83,39 @@ resource "aws_dynamodb_global_table" "note" {
   }
 }
 
+variable "bucket_name" {
+  type     = string
+  nullable = false
+}
+
+
+resource "aws_s3_bucket" "cert_bucket" {
+  provider = aws.ap-southeast-3
+
+  bucket = var.bucket_name
+
+}
+
+resource "aws_s3_bucket_lifecycle_configuration" "cert_bucket_lifecycle" {
+  bucket = aws_s3_bucket.cert_bucket.id
+
+  rule {
+    id = "deletion-rule-1"
+
+    filter {
+      prefix = "merged/"
+    }
+
+    expiration {
+      days = 30
+    }
+
+    # ... other transition/expiration actions ...
+
+    status = "Enabled"
+  }
+}
+
 # module "ecs" {
 #  source = "./modules/ecs"
 #  providers = {
