@@ -78,6 +78,8 @@ resource "aws_s3_bucket" "cert_bucket" {
 }
 
 resource "aws_s3_bucket_lifecycle_configuration" "cert_bucket_lifecycle" {
+  provider = aws.ap-southeast-3
+
   bucket = aws_s3_bucket.cert_bucket.id
 
   rule {
