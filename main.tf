@@ -53,7 +53,7 @@ terraform {
 
 resource "aws_s3_bucket" "cert_bucket" {
   provider = aws.ap-southeast-3
-  bucket = var.bucket_name
+  bucket   = var.bucket_name
 }
 
 resource "aws_s3_bucket_lifecycle_configuration" "cert_bucket_lifecycle" {
