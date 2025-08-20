@@ -7,7 +7,7 @@ on:
 jobs:
   terraform:
     name: 'Terraform'
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     environment: production
     steps:
       - name: Checkout
@@ -25,6 +25,9 @@ jobs:
       - name: Terraform Validate
         id: validate
         run: terraform validate -no-color
+      - name: Terraform Test
+        id: test
+        run: terraform test
       - name: Terraform Plan
         id: plan
         if: github.event_name == 'pull_request'
@@ -41,6 +44,7 @@ jobs:
             const output = `#### Terraform Format and Style 🖌\`${{ steps.fmt.outcome }}\`
             #### Terraform Initialization ⚙️\`${{ steps.init.outcome }}\`
             #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
+            #### Terraform Test \`${{ steps.test.outcome }}\`
             #### Terraform Validation 🤖\`${{ steps.validate.outcome }}\`
 
             <details><summary>Show Plan</summary>
