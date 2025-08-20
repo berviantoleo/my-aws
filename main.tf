@@ -69,7 +69,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "cert_bucket_lifecycle" {
     }
 
     expiration {
-      days = 30
+      days = 7
     }
 
     # ... other transition/expiration actions ...
