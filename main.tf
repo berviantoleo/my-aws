@@ -84,3 +84,10 @@ resource "aws_s3_bucket_lifecycle_configuration" "cert_bucket_lifecycle" {
 #    aws = aws.ap-southeast-1
 #  }
 #}
+
+module "instances" {
+  source = "./modules/instances"
+  providers = {
+    aws = aws.ap-southeast-3
+  }
+}
