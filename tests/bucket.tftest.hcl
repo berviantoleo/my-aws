@@ -12,6 +12,11 @@ mock_provider "aws" {
   alias = "ap-southeast-3"
 }
 
+override_module {
+  target = module.instances
+}
+
+
 run "test_ecr" {
   command = plan
 
