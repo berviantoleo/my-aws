@@ -96,6 +96,6 @@ resource "aws_ses_template" "my-report" {
   provider = aws.ap-southeast-3
 
   name    = "MyReport"
-  subject = "Report Usage - {{reportTime}}!"
+  subject = "Report Usage - {{ReportTime}}!"
   html    = file("templates/aws-report.html")
 }
