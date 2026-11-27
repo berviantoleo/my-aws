@@ -1,0 +1,104 @@
+<html>
+    <header>
+        <style>
+            h1 {
+                background-color: rgb(14, 38, 146);
+                color: aliceblue;
+                padding: 5px;
+                text-align: center;
+            }
+            table {
+                border-collapse: collapse;
+                width: 100%;
+                border: 1px solid #cccccc;
+            }
+        </style>
+    </header>
+    <body>
+        <h1>Service Reports</h1>
+        <p>Report Time: {{ReportTime}}</p>
+        {{#each EC2Services}}
+            <h2>EC2 Instances (Region: {{Region}})</h2>
+            <table border="1">
+                <tr>
+                    <th>Name</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                </tr>
+                {{#each Data}}
+                <tr>
+                    <td>{{Name}}</td>
+                    <td>{{CreatedAt}}</td>
+                    <td>{{UpdatedAt}}</td>
+                    <td>{{Type}}</td>
+                    <td>{{Status}}</td>
+                </tr>
+                {{/each}}
+            </table>
+        {{/each}}
+
+        <br>
+
+        {{#each LambdaList}}
+            <h2>Lambda (Region: {{Region}})</h2>
+            <table border="1">
+                <tr>
+                    <th>Name</th>
+                    <th>Created At</th>
+                    <th>Version</th>
+                    <th>Runtime</th>
+                    <th>Status</th>
+                </tr>
+                {{#each Data}}
+                <tr>
+                    <td>{{Name}}</td>
+                    <td>{{CreatedAt}}</td>
+                    <td>{{Version}}</td>
+                    <td>{{Runtime}}</td>
+                    <td>{{Status}}</td>
+                </tr>
+                {{/each}}
+            </table>
+        {{/each}}
+
+        <br>
+
+        {{#each ECRList}}
+            <h2>ECR (Region: {{Region}})</h2>
+            <table border="1">
+                <tr>
+                    <th>Name</th>
+                    <th>Created At</th>
+                    <th>Status</th>
+                </tr>
+                {{#each Data}}
+                <tr>
+                    <td>{{Name}}</td>
+                    <td>{{CreatedAt}}</td>
+                    <td>{{Status}}</td>
+                </tr>
+                {{/each}}
+            </table>
+        {{/each}}
+
+        {{#each S3List}}
+            <h2>S3 (Region: {{Region}})</h2>
+            <table border="1">
+                <tr>
+                    <th>Name</th>
+                    <th>Created At</th>
+                    <th>Status</th>
+                </tr>
+                {{#each Data}}
+                <tr>
+                    <td>{{Name}}</td>
+                    <td>{{CreatedAt}}</td>
+                    <td>{{Status}}</td>
+                </tr>
+                {{/each}}
+            </table>
+        {{/each}}
+    </body>
+</html>

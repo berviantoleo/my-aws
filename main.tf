@@ -91,3 +91,11 @@ module "instances" {
     aws = aws.ap-southeast-3
   }
 }
+
+resource "aws_ses_template" "my-report" {
+  provider = aws.ap-southeast-3
+
+  name    = "MyReport"
+  subject = "Report Usage - {{reportTime}}!"
+  html    = file("templates/aws-report.html")
+}
